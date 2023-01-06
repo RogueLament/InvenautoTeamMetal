@@ -25,5 +25,12 @@ public class ProductDetailPage extends PageObject
 		
 		return element.getText();
 	}
+	
+	public String getPrintedChiffonDressDescription() {
+		
+		var element = this.driver.findElement(By.cssSelector("#short_description_content > p"));
+		
+		return element.getText();
+	}
 
 }

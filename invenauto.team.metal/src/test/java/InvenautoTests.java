@@ -72,4 +72,23 @@ public class InvenautoTests extends TestBase{
 		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 		
 	}
+	
+	@Test
+	public void navigatePrintedChiffonDress() {
+		
+		var browserType = "chrome";
+
+		this.manager = DriverManagerFactory.getManager(browserType);
+		this.manager.createDriver();
+		this.driver = this.manager.getDriver();
+		
+		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
+		
+		HomePage page = new HomePage(driver);
+		
+		var actualResult = page.navigate().printedChiffonDress().getPrintedChiffonDressDescription();
+		
+		assertEquals(expectedResult, actualResult, "product detail page should contain correct title.");
+		
+	}
 }
