@@ -11,91 +11,91 @@ public class InvenautoTests extends TestBase{
 	@Test
 	public void navigatesToPrintedChiffonDressPage() {
 		var expectedValue = "https://invenauto.tech/index.php?id_product=7&controller=product";
-		
+
 		HomePage homePage = new HomePage(driver);
 		homePage.navigate().clickPrintedChiffonDress();
-        
-        var actualValue = driver.getCurrentUrl();
+
+		var actualValue = driver.getCurrentUrl();
 		Assert.assertEquals(actualValue, expectedValue);
 	}
-	
+
 	@Test
 	public void viewFadedShortSleeveTshirtPage() {
-	
-	var browserType = "chrome";
+		cleanup();
+		var browserType = "chrome";
 
-	this.manager = DriverManagerFactory.getManager(browserType);
-	this.manager.createDriver();
-	this.driver = this.manager.getDriver();
+		this.manager = DriverManagerFactory.getManager(browserType);
+		this.manager.createDriver();
+		this.driver = this.manager.getDriver();
 
-	var expectedTitle = "Faded Short Sleeves T-shirt";
+		var expectedTitle = "Faded Short Sleeves T-shirt";
 
-	HomePage page = new HomePage(driver);
-	var actualTitle = page.navigate().clickProductLink().getProductTitle();
+		HomePage page = new HomePage(driver);
+		var actualTitle = page.navigate().clickProductLink().getProductTitle();
 
-	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	}
 
 	@Test
 	public void navigatetoBlousePagethroughSitemapPage() {
-	
-	var browserType = "chrome";
+		cleanup();
+		var browserType = "chrome";
 
-	this.manager = DriverManagerFactory.getManager(browserType);
-	this.manager.createDriver();
-	this.driver = this.manager.getDriver();
+		this.manager = DriverManagerFactory.getManager(browserType);
+		this.manager.createDriver();
+		this.driver = this.manager.getDriver();
 
-	var expectedTitle = "Blouse";
+		var expectedTitle = "Blouse";
 
-	HomePage page = new HomePage(driver);
-	var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
+		HomePage page = new HomePage(driver);
+		var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
 
-	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 
 	}
-	
+
 	@Test
 	public void navigatetoFadedShortSleevesTshitthroughTshirtPage() {
-		
+		cleanup();
 		var browserType = "chrome";
 
 		this.manager = DriverManagerFactory.getManager(browserType);
 		this.manager.createDriver();
 		this.driver = this.manager.getDriver();
-		
+
 		var expectedTitle = "Faded Short Sleeves T-shirt";
-		
+
 		HomePage page = new HomePage(driver);
-		
+
 		var actualTitle = page.navigate().clickonTshirtTab().clickonfadedshortsleeveShirt().getShortSleeveShirtTitle();
-		
+
 		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
-		
+
 	}
-	
+
 	@Test
 	public void navigatePrintedChiffonDress() {
-		
+		cleanup();
 		var browserType = "chrome";
 
 		this.manager = DriverManagerFactory.getManager(browserType);
 		this.manager.createDriver();
 		this.driver = this.manager.getDriver();
-		
+
 		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
-		
+
 		HomePage page = new HomePage(driver);
-		
+
 		var actualResult = page.navigate().printedChiffonDress().getPrintedChiffonDressDescription();
-		
+
 		assertEquals(expectedResult, actualResult, "product detail page should contain correct title.");
-		
+
 	}
-	
+
 	@Test
 	public void canSignInWithValidInfoWithEnterKey() {
 		var expectedResult = "Sign out";
-		
+
 		var actualResult = new HomePage(this.driver)
 				.navigate()
 				.clickSignInLink()
@@ -104,14 +104,14 @@ public class InvenautoTests extends TestBase{
 				.pressEnter()
 				.getAccountPage()
 				.getSignOutButton();
-		
+
 		Assert.assertEquals(actualResult, expectedResult, "The sign out button text should be 'Sign out'");
 	}
-	
+
 	@Test
 	public void cantSignInWithoutValidPassword() {
 		var expectedResult = "There is 1 error";
-		
+
 		var actualResult = new HomePage(this.driver)
 				.navigate()
 				.clickSignInLink()
@@ -119,7 +119,7 @@ public class InvenautoTests extends TestBase{
 				.setPassword("TestTest")
 				.pressEnter()
 				.getErrorText();
-		
+
 		Assert.assertEquals(actualResult, expectedResult, "The error text should be 'There is 1 error'");
 	}
 }
