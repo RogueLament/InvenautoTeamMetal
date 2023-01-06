@@ -27,4 +27,11 @@ public class HomePage extends PageObject{
 		
 		return new SignInPage(this.driver);
 	}
+	
+	public HomePage clickGloves() {
+		var GlovesLink = this.driver.findElement(By.xpath("//a[@title='Gloves' and @class='product-name']"));
+		
+		GlovesLink.click();
+		return this;
+	}
 }
