@@ -53,4 +53,23 @@ public class InvenautoTests extends TestBase{
 	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 
 	}
+	
+	@Test
+	public void navigatetoFadedShortSleevesTshitthroughTshirtPage() {
+		
+		var browserType = "chrome";
+
+		this.manager = DriverManagerFactory.getManager(browserType);
+		this.manager.createDriver();
+		this.driver = this.manager.getDriver();
+		
+		var expectedTitle = "Faded Short Sleeves T-shirt";
+		
+		HomePage page = new HomePage(driver);
+		
+		var actualTitle = page.navigate().clickonTshirtTab().clickonfadedshortsleeveShirt().getShortSleeveShirtTitle();
+		
+		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+		
+	}
 }

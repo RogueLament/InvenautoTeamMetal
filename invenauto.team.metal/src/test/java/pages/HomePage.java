@@ -44,4 +44,10 @@ public class HomePage extends PageObject{
 
 		return new SiteMapPage(this.driver);
 	}
+	
+	public tshirtPage clickonTshirtTab() {
+		var link = this.driver.findElement(By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a"));
+		link.click();
+		return new tshirtPage(this.driver);
+	}
 }
