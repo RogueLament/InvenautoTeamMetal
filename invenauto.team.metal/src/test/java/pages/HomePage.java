@@ -34,4 +34,33 @@ public class HomePage extends PageObject{
 		GlovesLink.click();
 		return this;
 	}
+	
+	public ProductDetailPage clickProductLink()
+	{
+		var link = this.driver.findElement(By.cssSelector("#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span"));
+		link.click();
+
+		return new ProductDetailPage(this.driver);
+	}
+
+	public SiteMapPage clickonSiteMap()
+	{
+
+		var link = this.driver.findElement(By.cssSelector("#block_various_links_footer > ul > li:nth-child(8) > a"));
+		link.click();
+
+		return new SiteMapPage(this.driver);
+	}
+	
+	public tshirtPage clickonTshirtTab() {
+		var link = this.driver.findElement(By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a"));
+		link.click();
+		return new tshirtPage(this.driver);
+	}
+	
+	public ProductDetailPage printedChiffonDress() {
+		var link = this.driver.findElement(By.cssSelector("#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.last-line.first-item-of-tablet-line.first-item-of-mobile-line.last-mobile-line > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span"));
+		link.click();
+		return new ProductDetailPage(this.driver);
+	}
 }
