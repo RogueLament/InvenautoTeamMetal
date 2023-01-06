@@ -20,4 +20,11 @@ public class HomePage extends PageObject{
 		PrintedChiffonDressLink.get(0).click();
 		return this;
 	}
+	
+	public SignInPage clickSignInLink() {
+		var menuLink = this.driver.findElement(By.cssSelector("a[class='login']"));
+		menuLink.click();	
+		
+		return new SignInPage(this.driver);
+	}
 }
