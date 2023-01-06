@@ -51,6 +51,6 @@ public class InvenautoTests extends TestBase{
 	var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
 
 	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
-	//assertTrue(this.driver != null, "the driver should be launched");
+
 	}
 }
