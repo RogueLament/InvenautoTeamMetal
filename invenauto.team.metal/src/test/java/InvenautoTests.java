@@ -3,6 +3,7 @@ import static org.testng.Assert.assertEquals;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import foundation.DriverManagerFactory;
 import foundation.TestBase;
 import pages.HomePage;
 
@@ -21,6 +22,11 @@ public class InvenautoTests extends TestBase{
 	@Test
 	public void viewFadedShortSleeveTshirtPage() {
 	
+	var browserType = "chrome";
+
+	this.manager = DriverManagerFactory.getManager(browserType);
+	this.manager.createDriver();
+	this.driver = this.manager.getDriver();
 
 	var expectedTitle = "Faded Short Sleeves T-shirt";
 
@@ -28,19 +34,23 @@ public class InvenautoTests extends TestBase{
 	var actualTitle = page.navigate().clickProductLink().getProductTitle();
 
 	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
-	//assertTrue(this.driver != null, "the driver should be launched");
 	}
 
 	@Test
 	public void navigatetoBlousePagethroughSitemapPage() {
 	
+	var browserType = "chrome";
+
+	this.manager = DriverManagerFactory.getManager(browserType);
+	this.manager.createDriver();
+	this.driver = this.manager.getDriver();
 
 	var expectedTitle = "Blouse";
 
 	HomePage page = new HomePage(driver);
-	//var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
+	var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
 
-	//assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	//assertTrue(this.driver != null, "the driver should be launched");
 	}
 }
