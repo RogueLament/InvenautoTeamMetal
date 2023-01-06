@@ -43,4 +43,35 @@ public class InvenautoTests extends TestBase{
 	//assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	//assertTrue(this.driver != null, "the driver should be launched");
 	}
+	
+	@Test
+	public void canSignInWithValidInfoWithEnterKey() {
+		var expectedResult = "Sign out";
+		
+		var actualResult = new HomePage(this.driver)
+				.navigate()
+				.clickSignInLink()
+				.setEmailAddress("nateswenson93@gmail.com")
+				.setPassword("TestTest5")
+				.pressEnter()
+				.getAccountPage()
+				.getSignOutButton();
+		
+		Assert.assertEquals(actualResult, expectedResult, "The sign out button text should be 'Sign out'");
+	}
+	
+	@Test
+	public void cantSignInWithoutValidPassword() {
+		var expectedResult = "There is 1 error";
+		
+		var actualResult = new HomePage(this.driver)
+				.navigate()
+				.clickSignInLink()
+				.setEmailAddress("nateswenson93@gmail.com")
+				.setPassword("TestTest")
+				.pressEnter()
+				.getErrorText();
+		
+		Assert.assertEquals(actualResult, expectedResult, "The error text should be 'There is 1 error'");
+	}
 }
