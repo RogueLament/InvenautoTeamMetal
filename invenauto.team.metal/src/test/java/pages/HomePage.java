@@ -28,6 +28,13 @@ public class HomePage extends PageObject{
 		return new SignInPage(this.driver);
 	}
 	
+	public HomePage clickGloves() {
+		var GlovesLink = this.driver.findElement(By.xpath("//a[@title='Gloves' and @class='product-name']"));
+		
+		GlovesLink.click();
+		return this;
+	}
+	
 	public ProductDetailPage clickProductLink()
 	{
 		var link = this.driver.findElement(By.cssSelector("#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span"));
