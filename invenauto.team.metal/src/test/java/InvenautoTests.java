@@ -1,3 +1,5 @@
+import static org.testng.Assert.assertEquals;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,5 +16,31 @@ public class InvenautoTests extends TestBase{
         
         var actualValue = driver.getCurrentUrl();
 		Assert.assertEquals(actualValue, expectedValue);
+	}
+	
+	@Test
+	public void viewFadedShortSleeveTshirtPage() {
+	
+
+	var expectedTitle = "Faded Short Sleeves T-shirt";
+
+	HomePage page = new HomePage(driver);
+	var actualTitle = page.navigate().clickProductLink().getProductTitle();
+
+	assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+	//assertTrue(this.driver != null, "the driver should be launched");
+	}
+
+	@Test
+	public void navigatetoBlousePagethroughSitemapPage() {
+	
+
+	var expectedTitle = "Blouse";
+
+	HomePage page = new HomePage(driver);
+	//var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
+
+	//assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
+	//assertTrue(this.driver != null, "the driver should be launched");
 	}
 }
