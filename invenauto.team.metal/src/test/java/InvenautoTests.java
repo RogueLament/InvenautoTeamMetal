@@ -146,4 +146,19 @@ public class InvenautoTests extends TestBase{
 
 		Assert.assertEquals(actualResult, expectedResult, "The error text should be 'There is 1 error'");
 	}
+	
+	@Test
+	public void cantSignInWithoutAnAtSymbolInTheEmail() {
+		var expectedResult = true;
+
+		var actualResult = new HomePage(this.driver)
+				.navigate()
+				.clickSignInLink()
+				.setEmailAddress("user")
+				.setPassword("admin")
+				.pressEnter()
+				.isFormErrorDisplayed();
+
+		Assert.assertEquals(actualResult, expectedResult, "The form error element should be displayed");
+	}
 }

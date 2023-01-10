@@ -16,6 +16,9 @@ public class SignInPage extends PageObject{
 	
 	@FindBy(how=How.XPATH, using="//*[@id=\"center_column\"]/div[1]/p")
 	private WebElement errorElement;
+	
+	@FindBy(how=How.XPATH, using="//*[@id=\"login_form\"]/div/div[1]")
+	private WebElement formErrorElement;
 
 	public SignInPage(WebDriver driver) {
 		super(driver);
@@ -45,6 +48,10 @@ public class SignInPage extends PageObject{
 	
 	public String getErrorText() {
 		return this.errorElement.getText();
+	}
+	
+	public boolean isFormErrorDisplayed() {
+		return this.formErrorElement.isDisplayed();
 	}
 
 }
