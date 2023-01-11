@@ -6,7 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class SignInPage extends PageObject{
+import controlExtensionsJQuery.TextBoxControlExtension;
+import pages.PageObject;
+
+public class SignInPage extends PageObject {
 
 	@FindBy(how=How.ID, using="email")
 	private WebElement emailAddressElement;
@@ -25,13 +28,13 @@ public class SignInPage extends PageObject{
 	}
 
 	public SignInPage setEmailAddress(String value) {
-		new ControlExtensions.JQuery.TextBoxControlExtension(emailAddressElement).setValue(value);
+		new TextBoxControlExtension(emailAddressElement).setValue(value);
 
 		return this;
 	}
 
 	public SignInPage setPassword(String value) {
-		new ControlExtensions.JQuery.TextBoxControlExtension(passwordElement).setValue(value);
+		new TextBoxControlExtension(passwordElement).setValue(value);
 
 		return this;
 	}

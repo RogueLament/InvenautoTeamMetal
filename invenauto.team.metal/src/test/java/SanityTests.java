@@ -18,8 +18,8 @@ public class SanityTests extends TestBase {
 		
 		this.manager = DriverManagerFactory.getManager(browserType);
 		this.manager.createDriver();
-		this.driver = this.manager.getDriver();
+		//this.driver = ;
 		
-		assertTrue(this.driver != null, "the driver should be launched");
+		assertTrue(this.manager.getDriver() != null, "the driver should be launched");
 	}
 }

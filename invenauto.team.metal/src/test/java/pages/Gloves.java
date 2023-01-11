@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import ControlExtensions.JQuery.TextBoxControlExtension;
+import controlExtensionsJQuery.TextBoxControlExtension;
 
 public class Gloves extends ProductPageObject{
 	public Gloves(WebDriver driver) {

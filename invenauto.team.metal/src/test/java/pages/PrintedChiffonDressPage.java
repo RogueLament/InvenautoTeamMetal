@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import ControlExtensions.JQuery.TextBoxControlExtension;
+import controlExtensionsJQuery.TextBoxControlExtension;
 
 public class PrintedChiffonDressPage extends ProductPageObject {
 	@FindBy(how = How.ID, using = "quantityAvailable")

@@ -1,4 +1,4 @@
-package ControlExtensions.JQuery;
+package controlExtensionsJQuery;
 
 import org.openqa.selenium.WebElement;
 import ControlExtensions.TextBox;

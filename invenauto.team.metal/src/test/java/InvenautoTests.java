@@ -14,13 +14,13 @@ public class InvenautoTests extends TestBase{
 	public void getErrorWhenAddingMoreThanAvailbleStockToCart() {
 		var expectedError = "There are not enough products in stock.";
 
-		var printedChiffonDressPage = new HomePage(driver)
-		.navigate()
-		.clickPrintedChiffonDress();
+		var printedChiffonDressPage = visit().homePage()//new HomePage(driver)
+				.navigate()
+				.clickPrintedChiffonDress();
 		printedChiffonDressPage.enterMoreThanAvailableQuantity()
 		.clickAddToCart();
 		var actualError = printedChiffonDressPage.getErrorText();
-		
+
 		Assert.assertEquals(actualError, expectedError);
 	}
 
@@ -28,9 +28,11 @@ public class InvenautoTests extends TestBase{
 	public void getSuccessMessageWhenAddingOneItemToCart() {
 		var expectedMessage = "Product successfully added to your shopping cart";
 
-		new HomePage(driver).navigate().clickPrintedChiffonDress();
-
-		PrintedChiffonDressPage printedChiffonDressPage = new PrintedChiffonDressPage(driver).clickAddToCart();
+		var printedChiffonDressPage = visit()
+				.homePage()
+				.navigate()
+				.clickPrintedChiffonDress();
+		printedChiffonDressPage.clickAddToCart();
 
 		var actualMessage = printedChiffonDressPage.getSuccessText();
 		Assert.assertEquals(actualMessage, expectedMessage);
@@ -40,80 +42,70 @@ public class InvenautoTests extends TestBase{
 	public void getErrorMessageWhenAddingLetterToQuantities() {
 		var expectedError = "Null quantity.";
 
-		new HomePage(driver).navigate().clickGloves();
-
-		Gloves glovesPage = new Gloves(driver).enterEIntoQuantity().clickAddToCart();
-
+		var glovesPage = visit()
+				.homePage()
+				.navigate()
+				.clickGloves();
+		glovesPage.enterEIntoQuantity()
+		.clickAddToCart();
 		var actualError = glovesPage.getErrorText();
+
 		Assert.assertEquals(actualError, expectedError, "Entering e into the quantities should remove the number and we should get a null error due to there being no quantity");
 	}
 
 	@Test
 	public void viewFadedShortSleeveTshirtPage() {
-		cleanup();
-		var browserType = "chrome";
-
-		this.manager = DriverManagerFactory.getManager(browserType);
-		this.manager.createDriver();
-		this.driver = this.manager.getDriver();
-
 		var expectedTitle = "Faded Short Sleeves T-shirt";
 
-		HomePage page = new HomePage(driver);
-		var actualTitle = page.navigate().clickProductLink().getProductTitle();
+		var actualTitle = visit()
+				.homePage()
+				.navigate()
+				.focusFirstProduct()
+				.clickProductLink()
+				.getProductTitle();
 
 		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	}
 
 	@Test
 	public void navigatetoBlousePagethroughSitemapPage() {
-		cleanup();
-		var browserType = "chrome";
-
-		this.manager = DriverManagerFactory.getManager(browserType);
-		this.manager.createDriver();
-		this.driver = this.manager.getDriver();
-
 		var expectedTitle = "Blouse";
 
-		HomePage page = new HomePage(driver);
-		var actualTitle = page.navigate().clickonSiteMap().clickonBlousePage().getProductTitle();
+		var actualTitle = visit()
+				.homePage()
+				.navigate()
+				.clickonSiteMap()
+				.clickonBlousePage()
+				.getProductTitle();
 
 		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	}
 
 	@Test
 	public void navigatetoFadedShortSleevesTshitthroughTshirtPage() {
-		cleanup();
-		var browserType = "chrome";
-
-		this.manager = DriverManagerFactory.getManager(browserType);
-		this.manager.createDriver();
-		this.driver = this.manager.getDriver();
-
 		var expectedTitle = "Faded Short Sleeves T-shirt";
 
-		HomePage page = new HomePage(driver);
-
-		var actualTitle = page.navigate().clickonTshirtTab().clickonfadedshortsleeveShirt().getShortSleeveShirtTitle();
+		var actualTitle = visit()
+				.homePage()
+				.navigate()
+				.clickonTshirtTab()
+				.clickonfadedshortsleeveShirt()
+				.getShortSleeveShirtTitle();
 
 		assertEquals(expectedTitle, actualTitle, "product detail page should contain correct title.");
 	}
 
 	@Test
 	public void navigatePrintedChiffonDress() {
-		cleanup();
-		var browserType = "chrome";
 
-		this.manager = DriverManagerFactory.getManager(browserType);
-		this.manager.createDriver();
-		this.driver = this.manager.getDriver();
 
 		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
 
-		HomePage page = new HomePage(driver);
-
-		var actualResult = page.navigate().printedChiffonDress().getPrintedChiffonDressDescription();
+		var actualResult = visit()
+				.homePage()
+				.navigate()
+				.printedChiffonDress()
+				.getPrintedChiffonDressDescription();
 
 		assertEquals(expectedResult, actualResult, "product detail page should contain correct title.");
 	}
@@ -122,7 +114,8 @@ public class InvenautoTests extends TestBase{
 	public void canSignInWithValidInfoWithEnterKey() {
 		var expectedResult = "Sign out";
 
-		var actualResult = new HomePage(this.driver)
+		var actualResult = visit()
+				.homePage()
 				.navigate()
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
@@ -138,7 +131,8 @@ public class InvenautoTests extends TestBase{
 	public void cantSignInWithoutValidPassword() {
 		var expectedResult = "There is 1 error";
 
-		var actualResult = new HomePage(this.driver)
+		var actualResult = visit()
+				.homePage()
 				.navigate()
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
@@ -148,12 +142,13 @@ public class InvenautoTests extends TestBase{
 
 		Assert.assertEquals(actualResult, expectedResult, "The error text should be 'There is 1 error'");
 	}
-	
+
 	@Test
 	public void cantSignInWithoutAnAtSymbolInTheEmail() {
 		var expectedResult = true;
 
-		var actualResult = new HomePage(this.driver)
+		var actualResult = visit()
+				.homePage()
 				.navigate()
 				.clickSignInLink()
 				.setEmailAddress("user")

@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class tshirtPage extends PageObject
@@ -11,9 +10,9 @@ public class tshirtPage extends PageObject
 	}
 	
 	public ProductDetailPage clickonfadedshortsleeveShirt() {
-		
-		var link = this.driver.findElement(By.cssSelector("#product_list > li > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span"));
-		link.click();
+		var productContainer = getProductContainerWithDescription("T-shirt");
+		mouseover(productContainer);
+		productContainer.clickMore();
 
 		return new ProductDetailPage(this.driver);
 

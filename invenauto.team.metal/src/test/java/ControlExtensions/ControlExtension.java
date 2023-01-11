@@ -9,4 +9,11 @@ public abstract class ControlExtension {
 	public ControlExtension(WebElement mappedElement) {
 		this.mappedElement = mappedElement;
 	}
+	
+
+	public WebElement getElement() {
+		return this.mappedElement;
+	}
+
+	
 }

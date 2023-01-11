@@ -14,7 +14,7 @@ public class ProductDetailPage extends PageObject
 
 	public String getProductTitle() {
 	
-		var element = this.driver.findElement(By.cssSelector("#center_column > div > div > div.pb-center-column.col-xs-12.col-sm-4 > h1"));
+		var element = this.driver.findElement(By.xpath("//h1[@itemprop='name']"));
 
 		return element.getText();
 	}
