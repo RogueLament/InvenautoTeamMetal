@@ -14,11 +14,13 @@ public class InvenautoTests extends TestBase{
 	public void getErrorWhenAddingMoreThanAvailbleStockToCart() {
 		var expectedError = "There are not enough products in stock.";
 
-		new HomePage(driver).navigate().clickPrintedChiffonDress();
-
-		PrintedChiffonDressPage printedChiffonDressPage = new PrintedChiffonDressPage(driver).enterMoreThanAvailableQuantity().clickAddToCart();
-
+		var printedChiffonDressPage = new HomePage(driver)
+		.navigate()
+		.clickPrintedChiffonDress();
+		printedChiffonDressPage.enterMoreThanAvailableQuantity()
+		.clickAddToCart();
 		var actualError = printedChiffonDressPage.getErrorText();
+		
 		Assert.assertEquals(actualError, expectedError);
 	}
 
