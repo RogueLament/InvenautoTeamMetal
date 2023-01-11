@@ -14,11 +14,11 @@ public class HomePage extends PageObject{
 		return this;
 	}
 	
-	public HomePage clickPrintedChiffonDress() {
+	public PrintedChiffonDressPage clickPrintedChiffonDress() {
 		var PrintedChiffonDressLink = this.driver.findElements(By.xpath("//a[@title='Printed Chiffon Dress' and @class='product-name']"));
 		
 		PrintedChiffonDressLink.get(0).click();
-		return this;
+		return new PrintedChiffonDressPage(this.driver);
 	}
 	
 	public SignInPage clickSignInLink() {
