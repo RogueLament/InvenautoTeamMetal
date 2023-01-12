@@ -2,10 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class tshirtPage extends PageObject
+public class TShirtPage extends PageObject
 {
 
-	public tshirtPage(WebDriver driver) {
+	public TShirtPage(WebDriver driver) {
 		super(driver);
 	}
 	
