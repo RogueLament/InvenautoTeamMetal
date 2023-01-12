@@ -76,5 +76,12 @@ public class HomePage extends PageObject {
 		mouseover(productContainer);
 		return this;
 	}
+	
+	public BlousePage clickBlouse() {
+		var BlouseLink = this.driver.findElements(By.xpath("//a[@title='Blouse' and @class='product-name']"));
+		
+		BlouseLink.get(0).click();
+		return new BlousePage(this.driver);
+	}
 
 }

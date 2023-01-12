@@ -185,4 +185,18 @@ public class InvenautoTests extends TestBase{
 
 		Assert.assertEquals(actualError, expectedError, "Entering e into the quantities should remove the number and we should get a null error due to there being no quantity");
 	}
+	
+	@Test
+	public void getSuccessMessageWhenAddingMultipleOfAnItemToCart() {
+		var expectedMessage = "Product successfully added to your shopping cart";
+
+		var actualMessage = visit()
+				.homePage()
+				.navigate(this.baseURL)
+				.clickBlouse()
+				.clickAddToCart()
+				.getSuccessText();
+		
+		Assert.assertEquals(actualMessage, expectedMessage);
+	}
 }

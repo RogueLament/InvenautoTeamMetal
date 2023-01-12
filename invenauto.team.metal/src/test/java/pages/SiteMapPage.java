@@ -10,12 +10,12 @@ public class SiteMapPage extends PageObject
 		super(driver);
 	}
 
-	public blousePage clickonBlousePage() {
+	public BlousePage clickonBlousePage() {
 	
 		var link = this.driver.findElement(By.cssSelector("#best-sellers_block_right > div > ul > li:nth-child(1) > div > h5 > a"));
 		link.click();
 
-		return new blousePage(this.driver);
+		return new BlousePage(this.driver);
 
 	}
 
