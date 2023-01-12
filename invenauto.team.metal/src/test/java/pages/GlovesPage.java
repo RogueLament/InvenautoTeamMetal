@@ -4,19 +4,19 @@ import org.openqa.selenium.WebDriver;
 
 import controlExtensionsJQuery.TextBoxControlExtension;
 
-public class Gloves extends ProductPageObject{
-	public Gloves(WebDriver driver) {
+public class GlovesPage extends ProductPageObject{
+	public GlovesPage(WebDriver driver) {
 		super(driver);
 	}
 	
-	public Gloves enterValueIntoQuantity(String value) {
+	public GlovesPage enterValueIntoQuantity(String value) {
 		TextBoxControlExtension quantityTextBox = new TextBoxControlExtension(quantityElement);
 		quantityTextBox.clear();
 		quantityTextBox.setValue(value);
 		return this;
 	}
 	
-	public Gloves clickAddToCart() {
+	public GlovesPage clickAddToCart() {
 		addToCartElement.click();
 		return this;
 	}
