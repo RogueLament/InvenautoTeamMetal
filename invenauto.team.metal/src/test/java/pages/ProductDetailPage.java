@@ -21,7 +21,7 @@ public class ProductDetailPage extends PageObject
 	
 	public String getShortSleeveShirtTitle() {
 		
-		var element = this.driver.findElement(By.cssSelector("#center_column > div > div > div.pb-center-column.col-xs-12.col-sm-4 > h1"));
+		var element = this.driver.findElement(By.cssSelector("#center_column h1"));
 		
 		return element.getText();
 	}
