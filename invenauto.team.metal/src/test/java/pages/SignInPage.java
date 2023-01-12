@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import controlExtensionsJQuery.TextBoxControlExtension;
-import pages.PageObject;
 
 public class SignInPage extends PageObject {
 

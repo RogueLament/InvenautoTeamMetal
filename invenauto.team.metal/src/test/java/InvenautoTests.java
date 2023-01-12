@@ -3,11 +3,7 @@ import static org.testng.Assert.assertEquals;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import foundation.DriverManagerFactory;
 import foundation.TestBase;
-import pages.Gloves;
-import pages.HomePage;
-import pages.PrintedChiffonDressPage;
 
 public class InvenautoTests extends TestBase{
 	@Test
@@ -15,7 +11,7 @@ public class InvenautoTests extends TestBase{
 		var expectedError = "There are not enough products in stock.";
 
 		var printedChiffonDressPage = visit().homePage()//new HomePage(driver)
-				.navigate()
+				.navigate(this.baseURL)
 				.clickPrintedChiffonDress();
 		printedChiffonDressPage.enterMoreThanAvailableQuantity()
 		.clickAddToCart();
@@ -30,7 +26,7 @@ public class InvenautoTests extends TestBase{
 
 		var printedChiffonDressPage = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickPrintedChiffonDress();
 		printedChiffonDressPage.clickAddToCart();
 
@@ -44,7 +40,7 @@ public class InvenautoTests extends TestBase{
 
 		var glovesPage = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickGloves();
 		glovesPage.enterEIntoQuantity()
 		.clickAddToCart();
@@ -59,7 +55,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualTitle = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.focusFirstProduct()
 				.clickProductLink()
 				.getProductTitle();
@@ -73,7 +69,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualTitle = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickonSiteMap()
 				.clickonBlousePage()
 				.getProductTitle();
@@ -87,7 +83,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualTitle = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickonTshirtTab()
 				.clickonfadedshortsleeveShirt()
 				.getShortSleeveShirtTitle();
@@ -103,7 +99,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualResult = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.printedChiffonDress()
 				.getPrintedChiffonDressDescription();
 
@@ -116,7 +112,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualResult = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
 				.setPassword("TestTest5")
@@ -133,7 +129,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualResult = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
 				.setPassword("TestTest")
@@ -149,7 +145,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualResult = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickSignInLink()
 				.setEmailAddress("user")
 				.setPassword("admin")
