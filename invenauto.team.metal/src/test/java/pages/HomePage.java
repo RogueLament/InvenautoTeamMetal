@@ -53,10 +53,10 @@ public class HomePage extends PageObject {
 		return new SiteMapPage(this.driver);
 	}
 	
-	public tshirtPage clickonTshirtTab() {
+	public TShirtPage clickonTshirtTab() {
 		var tshirtLink = this.driver.findElements(By.cssSelector("#block_top_menu a[title*='T-shirt']")).get(1);
 		tshirtLink.click();
-		return new tshirtPage(this.driver);
+		return new TShirtPage(this.driver);
 	}
 	
 	public ProductDetailPage printedChiffonDress() {
