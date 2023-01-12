@@ -93,8 +93,6 @@ public class InvenautoTests extends TestBase{
 
 	@Test
 	public void navigatePrintedChiffonDress() {
-
-
 		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
 
 		var actualResult = visit()
@@ -169,6 +167,34 @@ public class InvenautoTests extends TestBase{
 				.getSignOutButton();
 
 		Assert.assertEquals(actualResult, expectedResult, "The sign out button text should be 'Sign out'");
+	}
+	
+	@Test
+	public void canAddGlovesToCart() {
+		String expectedText = "Product successfully added to your shopping cart";
+
+		String actualText = visit()
+				.homePage()
+				.navigate(this.baseURL)
+				.clickGloves()
+				.clickAddToCart()
+				.getSuccessText();
+
+		Assert.assertEquals(actualText, expectedText, "The user should receive a confirmation message");		
+	}
+	
+	@Test
+	public void getOutOfStockMessage() {
+		String expectedText = "This product is no longer in stock with those attributes but is available with others.";
+		
+		String actualText = visit()
+				.homePage()
+				.navigate(this.baseURL)
+				.clickPrintesSummerDress6()
+				.clickWhiteBox()
+				.getOutOfStockMessage();
+
+		Assert.assertEquals(actualText, expectedText, "The user should receive an error message stating the product is out of stock");		
 	}
 	
 	@Test

@@ -84,4 +84,11 @@ public class HomePage extends PageObject {
 		return new BlousePage(this.driver);
 	}
 
+	public Dress6Page clickPrintesSummerDress6() {
+		var DressLink = this.driver.findElements(By.xpath("//a[contains(text(),'Printed Summer Dress')]"));
+		
+		DressLink.get(1).click();
+		return new Dress6Page(this.driver);
+	}
+
 }
