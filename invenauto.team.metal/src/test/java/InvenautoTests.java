@@ -161,7 +161,7 @@ public class InvenautoTests extends TestBase{
 
 		var actualResult = visit()
 				.homePage()
-				.navigate()
+				.navigate(this.baseURL)
 				.clickSignInLink()
 				.setEmailAddress("user@gmail.com")
 				.setPassword("admin")
