@@ -18,4 +18,9 @@ public class TextBoxControlExtension extends ControlExtensions.ControlExtension 
 	public String getValue() {
 		return this.mappedElement.getAttribute("value");
 	}
+	
+	@Override
+	public void clear() {
+		this.mappedElement.clear();
+	}
 }

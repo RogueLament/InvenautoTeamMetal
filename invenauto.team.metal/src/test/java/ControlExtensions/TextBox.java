@@ -5,4 +5,6 @@ public interface TextBox {
 	void setValue(String value);
 
 	String getValue();
+	
+	void clear();
 }

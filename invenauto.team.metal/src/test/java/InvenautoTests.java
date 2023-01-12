@@ -42,7 +42,7 @@ public class InvenautoTests extends TestBase{
 				.homePage()
 				.navigate(this.baseURL)
 				.clickGloves()
-				.enterEIntoQuantity()
+				.enterValueIntoQuantity("e")
 				.clickAddToCart()
 		 		.getErrorText();
 
@@ -169,5 +169,20 @@ public class InvenautoTests extends TestBase{
 				.getSignOutButton();
 
 		Assert.assertEquals(actualResult, expectedResult, "The sign out button text should be 'Sign out'");
+	}
+	
+	@Test
+	public void getErrorMessageWhenAddingNegativeNumberToQuantities() {
+		var expectedError = "Null quantity.";
+
+		var actualError = visit()
+				.homePage()
+				.navigate(this.baseURL)
+				.clickGloves()
+				.enterValueIntoQuantity("-1")
+				.clickAddToCart()
+		 		.getErrorText();
+
+		Assert.assertEquals(actualError, expectedError, "Entering e into the quantities should remove the number and we should get a null error due to there being no quantity");
 	}
 }

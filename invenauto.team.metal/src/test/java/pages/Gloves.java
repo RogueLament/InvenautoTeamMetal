@@ -9,9 +9,10 @@ public class Gloves extends ProductPageObject{
 		super(driver);
 	}
 	
-	public Gloves enterEIntoQuantity() {
+	public Gloves enterValueIntoQuantity(String value) {
 		TextBoxControlExtension quantityTextBox = new TextBoxControlExtension(quantityElement);
-		quantityTextBox.setValue("e");
+		quantityTextBox.clear();
+		quantityTextBox.setValue(value);
 		return this;
 	}
 	
