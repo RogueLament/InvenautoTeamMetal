@@ -22,6 +22,9 @@ public class SignInPage extends PageObject {
 	
 	@FindBy(how=How.XPATH, using="//*[@id=\"login_form\"]/div/div[1]")
 	private WebElement formErrorElement;
+	
+	@FindBy(how=How.ID, using="SubmitLogin")
+	private WebElement signInButtonElement;
 
 	public SignInPage(WebDriver driver) {
 		super(driver);
@@ -56,5 +59,9 @@ public class SignInPage extends PageObject {
 	public boolean isFormErrorDisplayed() {
 		return this.formErrorElement.isDisplayed();
 	}
-
+	
+	public AccountPage clickSignIn() {
+		this.signInButtonElement.click();
+		return getAccountPage();
+	}
 }

@@ -158,4 +158,20 @@ public class InvenautoTests extends TestBase{
 
 		Assert.assertEquals(actualResult, expectedResult, "The form error element should be displayed");
 	}
+	
+	@Test
+	public void canSignInWithValidInfo() {
+		var expectedResult = "Sign out";
+
+		var actualResult = visit()
+				.homePage()
+				.navigate()
+				.clickSignInLink()
+				.setEmailAddress("user@gmail.com")
+				.setPassword("admin")
+				.clickSignIn()
+				.getSignOutButton();
+
+		Assert.assertEquals(actualResult, expectedResult, "The sign out button text should be 'Sign out'");
+	}
 }
