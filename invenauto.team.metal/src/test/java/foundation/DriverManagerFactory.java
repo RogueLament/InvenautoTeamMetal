@@ -4,10 +4,10 @@ public class DriverManagerFactory {
 
 	public static DriverManager getManager(String browserType) {
 
-		if(browserType == BrowserTypes.chrome) {
+		if(browserType.equals(BrowserTypes.chrome) ) {
 			return new ChromeDriverManager();
 		}
-		if(browserType == BrowserTypes.edge) {
+		if(browserType.equals(BrowserTypes.edge)) {
 			return new EdgeDriverManager();
 		}
 

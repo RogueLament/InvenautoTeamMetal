@@ -3,14 +3,14 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends PageObject{
+public class HomePage extends PageObject {
 
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
 	
-	public HomePage navigate() {
-		this.driver.get("https://invenauto.tech/index.php");
+	public HomePage navigate(String baseURL) {
+		this.driver.get(baseURL);
 		return this;
 	}
 	
