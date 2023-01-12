@@ -10,12 +10,12 @@ public class InvenautoTests extends TestBase{
 	public void getErrorWhenAddingMoreThanAvailbleStockToCart() {
 		var expectedError = "There are not enough products in stock.";
 
-		var printedChiffonDressPage = visit().homePage()//new HomePage(driver)
+		var actualError = visit().homePage()
 				.navigate(this.baseURL)
-				.clickPrintedChiffonDress();
-		printedChiffonDressPage.enterMoreThanAvailableQuantity()
-		.clickAddToCart();
-		var actualError = printedChiffonDressPage.getErrorText();
+				.clickPrintedChiffonDress()
+				.enterMoreThanAvailableQuantity()
+				.clickAddToCart()
+				.getErrorText();
 
 		Assert.assertEquals(actualError, expectedError);
 	}
@@ -24,13 +24,13 @@ public class InvenautoTests extends TestBase{
 	public void getSuccessMessageWhenAddingOneItemToCart() {
 		var expectedMessage = "Product successfully added to your shopping cart";
 
-		var printedChiffonDressPage = visit()
+		var actualMessage = visit()
 				.homePage()
 				.navigate(this.baseURL)
-				.clickPrintedChiffonDress();
-		printedChiffonDressPage.clickAddToCart();
-
-		var actualMessage = printedChiffonDressPage.getSuccessText();
+				.clickPrintedChiffonDress()
+				.clickAddToCart()
+				.getSuccessText();
+		
 		Assert.assertEquals(actualMessage, expectedMessage);
 	}
 
@@ -38,13 +38,13 @@ public class InvenautoTests extends TestBase{
 	public void getErrorMessageWhenAddingLetterToQuantities() {
 		var expectedError = "Null quantity.";
 
-		var glovesPage = visit()
+		var actualError = visit()
 				.homePage()
 				.navigate(this.baseURL)
-				.clickGloves();
-		glovesPage.enterEIntoQuantity()
-		.clickAddToCart();
-		var actualError = glovesPage.getErrorText();
+				.clickGloves()
+				.enterEIntoQuantity()
+				.clickAddToCart()
+		 		.getErrorText();
 
 		Assert.assertEquals(actualError, expectedError, "Entering e into the quantities should remove the number and we should get a null error due to there being no quantity");
 	}
