@@ -17,7 +17,7 @@ public class InvenautoTests extends TestBase{
 				.clickAddToCart()
 				.getErrorText();
 
-		Assert.assertEquals(actualError, expectedError);
+		Assert.assertEquals(actualError, expectedError, "A box with error message 'There are not enough products in stock' should appear");
 	}
 
 	@Test
@@ -31,7 +31,7 @@ public class InvenautoTests extends TestBase{
 				.clickAddToCart()
 				.getSuccessText();
 		
-		Assert.assertEquals(actualMessage, expectedMessage);
+		Assert.assertEquals(actualMessage, expectedMessage, "A box with product details and message 'Product successfully added to your shopping cart' should appear");
 	}
 
 	@Test
@@ -223,6 +223,6 @@ public class InvenautoTests extends TestBase{
 				.clickAddToCart()
 				.getSuccessText();
 		
-		Assert.assertEquals(actualMessage, expectedMessage);
+		Assert.assertEquals(actualMessage, expectedMessage, "A box with product details and message 'Product successfully added to your shopping cart' should appear");
 	}
 }
