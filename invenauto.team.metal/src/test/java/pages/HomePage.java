@@ -46,8 +46,7 @@ public class HomePage extends PageObject {
 
 	public SiteMapPage clickonSiteMap()
 	{
-
-		var link = this.driver.findElement(By.cssSelector("#block_various_links_footer > ul > li:nth-child(8) > a"));
+		var link = this.driver.findElement(By.linkText("Sitemap"));
 		link.click();
 
 		return new SiteMapPage(this.driver);

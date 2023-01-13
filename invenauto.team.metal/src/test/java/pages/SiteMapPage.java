@@ -12,7 +12,7 @@ public class SiteMapPage extends PageObject
 
 	public BlousePage clickonBlousePage() {
 	
-		var link = this.driver.findElement(By.cssSelector("#best-sellers_block_right > div > ul > li:nth-child(1) > div > h5 > a"));
+		var link = this.driver.findElement(By.linkText("Blouse"));
 		link.click();
 
 		return new BlousePage(this.driver);

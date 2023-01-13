@@ -10,19 +10,19 @@ import controlExtensionsJQuery.TextBoxControlExtension;
 
 public class SignInPage extends PageObject {
 
-	@FindBy(how=How.ID, using="email")
+	@FindBy(id="email")
 	private WebElement emailAddressElement;
 
-	@FindBy(how=How.ID, using="passwd")
+	@FindBy(id="passwd")
 	private WebElement passwordElement;
 	
-	@FindBy(how=How.XPATH, using="//*[@id=\"center_column\"]/div[1]/p")
+	@FindBy(xpath="//*[@id='center_column']/div[1]/p")
 	private WebElement errorElement;
 	
-	@FindBy(how=How.XPATH, using="//*[@id=\"login_form\"]/div/div[1]")
+	@FindBy(xpath="//*[@id='login_form']/div/div[1]")
 	private WebElement formErrorElement;
 	
-	@FindBy(how=How.ID, using="SubmitLogin")
+	@FindBy(id="SubmitLogin")
 	private WebElement signInButtonElement;
 
 	public SignInPage(WebDriver driver) {
