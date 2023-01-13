@@ -11,6 +11,7 @@ import ControlExtensions.ProductContainer;
 
 public abstract class PageObject {
 	protected WebDriver driver;
+	private static String baseURL;
 
 	public PageObject(WebDriver driver) {
 		this.driver = driver;
@@ -35,5 +36,13 @@ public abstract class PageObject {
 	}
 	public void mouseover(ControlExtension extension) {
 		new Actions(driver).moveToElement(extension.getElement()).perform();
+	}
+
+	public static String getBaseURL() {
+		return baseURL;
+	}
+
+	public static void setBaseURL(String baseURL) {
+		PageObject.baseURL = baseURL;
 	}
 }

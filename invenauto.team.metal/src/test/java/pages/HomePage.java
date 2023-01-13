@@ -5,12 +5,18 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends PageObject {
 
+
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
-	
-	public HomePage navigate(String baseURL) {
-		this.driver.get(baseURL);
+
+	public HomePage navigate() {
+		this.driver.get(getBaseURL());
+		return this;
+	}
+	public HomePage navigate(String newBaseURL) {
+		setBaseURL(newBaseURL);
+		this.driver.get(newBaseURL);
 		return this;
 	}
 	
@@ -58,7 +64,7 @@ public class HomePage extends PageObject {
 		return new TShirtPage(this.driver);
 	}
 	
-	public ProductDetailPage printedChiffonDress() {
+	public ProductDetailPage openPrintedChiffonDress() {
 		getProductContainerWithDescription("Printed Chiffon Dress")
 		.clickMore();
 		return new ProductDetailPage(this.driver);

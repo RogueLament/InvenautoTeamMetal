@@ -4,14 +4,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import foundation.TestBase;
+import pages.HomePage;
 
 public class InvenautoTests extends TestBase{
+	
+	public HomePage navigateToHomePage() {
+		return visit()
+				.homePage()
+				.navigate();
+	}
+	
 	@Test
 	public void getErrorWhenAddingMoreThanAvailbleStockToCart() {
 		var expectedError = "There are not enough products in stock.";
 
-		var actualError = visit().homePage()
-				.navigate(this.baseURL)
+		var actualError = navigateToHomePage()
 				.clickPrintedChiffonDress()
 				.enterMoreThanAvailableQuantity()
 				.clickAddToCart()
@@ -24,9 +31,7 @@ public class InvenautoTests extends TestBase{
 	public void getSuccessMessageWhenAddingOneItemToCart() {
 		var expectedMessage = "Product successfully added to your shopping cart";
 
-		var actualMessage = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualMessage = navigateToHomePage()
 				.clickPrintedChiffonDress()
 				.clickAddToCart()
 				.getSuccessText();
@@ -38,9 +43,7 @@ public class InvenautoTests extends TestBase{
 	public void getErrorMessageWhenAddingLetterToQuantities() {
 		var expectedError = "Null quantity.";
 
-		var actualError = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualError = navigateToHomePage()
 				.clickGloves()
 				.enterValueIntoQuantity("e")
 				.clickAddToCart()
@@ -53,9 +56,7 @@ public class InvenautoTests extends TestBase{
 	public void viewFadedShortSleeveTshirtPage() {
 		var expectedTitle = "Faded Short Sleeves T-shirt";
 
-		var actualTitle = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualTitle = navigateToHomePage()
 				.focusFirstProduct()
 				.clickProductLink()
 				.getProductTitle();
@@ -67,9 +68,7 @@ public class InvenautoTests extends TestBase{
 	public void navigatetoBlousePagethroughSitemapPage() {
 		var expectedTitle = "Blouse";
 
-		var actualTitle = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualTitle = navigateToHomePage()
 				.clickonSiteMap()
 				.clickonBlousePage()
 				.getProductTitle();
@@ -81,9 +80,7 @@ public class InvenautoTests extends TestBase{
 	public void navigatetoFadedShortSleevesTshitthroughTshirtPage() {
 		var expectedTitle = "Faded Short Sleeves T-shirt";
 
-		var actualTitle = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualTitle = navigateToHomePage()
 				.clickonTshirtTab()
 				.clickonfadedshortsleeveShirt()
 				.getShortSleeveShirtTitle();
@@ -95,10 +92,8 @@ public class InvenautoTests extends TestBase{
 	public void navigatePrintedChiffonDress() {
 		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
 
-		var actualResult = visit()
-				.homePage()
-				.navigate(this.baseURL)
-				.printedChiffonDress()
+		var actualResult = navigateToHomePage()
+				.openPrintedChiffonDress()
 				.getPrintedChiffonDressDescription();
 
 		assertEquals(expectedResult, actualResult, "product detail page should contain correct title.");
@@ -108,9 +103,7 @@ public class InvenautoTests extends TestBase{
 	public void canSignInWithValidInfoWithEnterKey() {
 		var expectedResult = "Sign out";
 
-		var actualResult = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualResult = navigateToHomePage()
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
 				.setPassword("TestTest5")
@@ -125,9 +118,7 @@ public class InvenautoTests extends TestBase{
 	public void cantSignInWithoutValidPassword() {
 		var expectedResult = "There is 1 error";
 
-		var actualResult = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualResult = navigateToHomePage()
 				.clickSignInLink()
 				.setEmailAddress("nateswenson93@gmail.com")
 				.setPassword("TestTest")
@@ -141,9 +132,7 @@ public class InvenautoTests extends TestBase{
 	public void cantSignInWithoutAnAtSymbolInTheEmail() {
 		var expectedResult = true;
 
-		var actualResult = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualResult = navigateToHomePage()
 				.clickSignInLink()
 				.setEmailAddress("user")
 				.setPassword("admin")
@@ -157,9 +146,7 @@ public class InvenautoTests extends TestBase{
 	public void canSignInWithValidInfo() {
 		var expectedResult = "Sign out";
 
-		var actualResult = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualResult = navigateToHomePage()
 				.clickSignInLink()
 				.setEmailAddress("user@gmail.com")
 				.setPassword("admin")
@@ -173,9 +160,7 @@ public class InvenautoTests extends TestBase{
 	public void canAddGlovesToCart() {
 		String expectedText = "Product successfully added to your shopping cart";
 
-		String actualText = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		String actualText = navigateToHomePage()
 				.clickGloves()
 				.clickAddToCart()
 				.getSuccessText();
@@ -187,9 +172,7 @@ public class InvenautoTests extends TestBase{
 	public void getOutOfStockMessage() {
 		String expectedText = "This product is no longer in stock with those attributes but is available with others.";
 		
-		String actualText = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		String actualText = navigateToHomePage()
 				.clickPrintesSummerDress6()
 				.clickWhiteBox()
 				.getOutOfStockMessage();
@@ -201,9 +184,7 @@ public class InvenautoTests extends TestBase{
 	public void getErrorMessageWhenAddingNegativeNumberToQuantities() {
 		var expectedError = "Null quantity.";
 
-		var actualError = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualError = navigateToHomePage()
 				.clickGloves()
 				.enterValueIntoQuantity("-1")
 				.clickAddToCart()
@@ -216,9 +197,7 @@ public class InvenautoTests extends TestBase{
 	public void getSuccessMessageWhenAddingMultipleOfAnItemToCart() {
 		var expectedMessage = "Product successfully added to your shopping cart";
 
-		var actualMessage = visit()
-				.homePage()
-				.navigate(this.baseURL)
+		var actualMessage = navigateToHomePage()
 				.clickBlouse()
 				.clickAddToCart()
 				.getSuccessText();

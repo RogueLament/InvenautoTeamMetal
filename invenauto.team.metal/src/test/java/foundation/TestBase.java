@@ -15,6 +15,7 @@ public abstract class TestBase {
 	protected String browserType;
 	protected String baseURL;
 	private WebDriver driver;
+	//private Setting settings;
 
 	@BeforeMethod
 	public void setup() {
@@ -24,8 +25,8 @@ public abstract class TestBase {
 		this.driver = manager.getDriver();
 		var manage = this.driver.manage();
 		manage.window().maximize();
-		manage.timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		this.pageRepository = new PageRepository(this.driver);
+		manage.timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		this.pageRepository = new PageRepository(this.driver, this.baseURL);
 
 	}
 
