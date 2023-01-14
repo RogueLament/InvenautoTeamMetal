@@ -23,7 +23,6 @@ public class BlousePage extends ProductPageObject {
 	
 	public BlousePage enterValueIntoQuantity(String value) {
 		TextBoxControlExtension quantityTextBox = new TextBoxControlExtension(quantityElement);
-		quantityTextBox.clear();
 		quantityTextBox.setValue(value);
 		return this;
 	}

@@ -11,7 +11,6 @@ public class GlovesPage extends ProductPageObject{
 	
 	public GlovesPage enterValueIntoQuantity(String value) {
 		TextBoxControlExtension quantityTextBox = new TextBoxControlExtension(quantityElement);
-		quantityTextBox.clear();
 		quantityTextBox.setValue(value);
 		return this;
 	}

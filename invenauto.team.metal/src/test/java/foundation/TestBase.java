@@ -19,7 +19,7 @@ public abstract class TestBase {
 
 	@BeforeMethod
 	public void setup() {
-		readFile();
+		readOptions();
 		this.manager = DriverManagerFactory.getManager(browserType);
 		this.manager.createDriver();
 		this.driver = manager.getDriver();
@@ -41,7 +41,7 @@ public abstract class TestBase {
 		return this.pageRepository;
 	}
 
-	private void readFile() {
+	private void readOptions() {
 		try {
 			File options = new File("Options.txt");
 			Scanner myReader = new Scanner(options);
