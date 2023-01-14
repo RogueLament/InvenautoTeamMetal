@@ -14,6 +14,7 @@ public class HomePage extends PageObject {
 		this.driver.get(getBaseURL());
 		return this;
 	}
+	
 	public HomePage navigate(String newBaseURL) {
 		setBaseURL(newBaseURL);
 		this.driver.get(newBaseURL);
