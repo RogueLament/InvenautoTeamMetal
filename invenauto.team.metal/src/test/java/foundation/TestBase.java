@@ -25,7 +25,7 @@ public abstract class TestBase {
 		this.driver = manager.getDriver();
 		var manage = this.driver.manage();
 		manage.window().maximize();
-		manage.timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		manage.timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		this.pageRepository = new PageRepository(this.driver, this.baseURL);
 
 	}
