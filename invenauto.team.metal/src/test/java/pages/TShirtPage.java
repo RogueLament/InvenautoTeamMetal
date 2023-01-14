@@ -14,7 +14,7 @@ public class TShirtPage extends PageObject
 		var productContainer = getProductContainerWithDescription("T-shirt");
 		mouseover(productContainer);
 		new Actions(driver)
-        .moveByOffset(-10, -10)
+        .moveByOffset(10, 10)
         .perform();
 		productContainer.clickMore();
 
