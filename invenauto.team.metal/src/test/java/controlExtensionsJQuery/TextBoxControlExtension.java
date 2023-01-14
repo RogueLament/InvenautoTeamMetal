@@ -11,6 +11,7 @@ public class TextBoxControlExtension extends ControlExtensions.ControlExtension 
 
 	@Override
 	public void setValue(String value) {
+		clear();
 		this.mappedElement.sendKeys(value);
 	}
 
