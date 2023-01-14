@@ -89,7 +89,7 @@ public class InvenautoTests extends TestBase{
 	}
 
 	@Test
-	public void navigatePrintedChiffonDress() {
+	public void navigateToProductDetails() {
 		var expectedResult = "Printed chiffon knee length dress with tank straps. Deep v-neckline.";
 
 		var actualResult = navigateToHomePage()

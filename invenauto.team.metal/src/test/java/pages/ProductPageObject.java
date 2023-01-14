@@ -21,13 +21,13 @@ public abstract class ProductPageObject extends PageObject{
 	}
 	
 	public String getErrorText() {
-		WebDriverWait wait = new WebDriverWait(this.driver,10);
+		WebDriverWait wait = new WebDriverWait(this.driver,2);
 	    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[@class='fancybox-error']")));
 		return errorBox.getText();
 	}
 	
 	public String getSuccessText() {
-		WebDriverWait wait = new WebDriverWait(this.driver,10);
+		WebDriverWait wait = new WebDriverWait(this.driver,2);
 	    wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='layer_cart']")));
 		var successText = this.driver.findElements(By.xpath("//span[@class='title']"));
 		

@@ -15,13 +15,14 @@ public class PrintedChiffonDressPage extends ProductPageObject {
 		super(driver);
 	}
 	
-	private String getAvailableQuantity() {
-		return availableQuantityElement.getText();
+	private int getAvailableQuantity() {
+		return Integer.valueOf(availableQuantityElement.getText());
 	}
 	
 	public PrintedChiffonDressPage enterMoreThanAvailableQuantity() {
 		TextBoxControlExtension quantityTextBox = new TextBoxControlExtension(quantityElement);
-		quantityTextBox.setValue(getAvailableQuantity());
+		var quantity = getAvailableQuantity()+1;
+		quantityTextBox.setValue(String.valueOf(quantity));
 		return this;
 	}
 	

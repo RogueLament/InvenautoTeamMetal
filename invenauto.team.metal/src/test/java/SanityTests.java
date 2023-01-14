@@ -6,6 +6,7 @@ import foundation.DriverManagerFactory;
 import foundation.TestBase;
 
 public class SanityTests extends TestBase {
+	@SuppressWarnings("unused")
 	@Test
 	public void canUseVar() {
 		String myString = "Taylo  rDennis";
